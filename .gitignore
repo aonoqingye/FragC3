@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.env
+.venv
+venv/
+conda/
+env/
+
+# Data (very important)
+*.csv
+*.pkl
+*.pt
+*.pth
+*.npy
+
+# Logs & outputs
+logs/
+results/
+outputs/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+# FragC3
+
+Official implementation of **FragC3**:  
+*Fragment-centric Cell-conditioned Cross-attention for Drug Synergy Prediction*.
+
+## Overview
+FragC3 models cell-conditioned cross-drug fragment interactions via a tri-attention mechanism,
+providing accurate and interpretable drug synergy predictions.
+
+## Requirements
+See `requirements.txt`.
+
+## Data
+Place the dataset files in their respective directories under the datas/ folder (DrugComb, ONeil, NCI-ALMANAC).
+
+## Training
+```bash
+python train_final.py --dataset DrugComb --group Drug
