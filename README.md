@@ -1,7 +1,7 @@
 # FragC3
 
 Official implementation of **FragC3**:  
-*Fragment-centric Cell-conditioned Cross-attention for Drug Synergy Prediction*.
+*Fragment-Centric Drug Synergy Prediction with Cell-Conditioned Cross-Fragment Attention.*
 
 ## Overview
 FragC3 models cell-conditioned cross-drug fragment interactions via a tri-attention mechanism,
