@@ -469,7 +469,7 @@ def parse_args():
                    help="Random seed")
     p.add_argument("--folds", type=int, default=5,
                    help="Number of folds for cross-validation (default: 5)")
-    p.add_argument("--only_fold", type=int, default=2,
+    p.add_argument("--only_fold", type=int, default=0,
                    help="Run a single specified fold only")
     p.add_argument("--groups", type=str, default="Drug",
                    choices=["Cell", "Drug", "none"],

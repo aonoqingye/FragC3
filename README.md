@@ -15,4 +15,4 @@ Place the dataset files in their respective directories under the datas/ folder 
 
 ## Training
 ```bash
-python train_final.py --dataset DrugComb --group Drug
+python train.py --dataset DrugComb --groups Drug
