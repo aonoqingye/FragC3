@@ -113,7 +113,7 @@ python train.py --dataset ALMANAC --groups Drug
 Run a single fold:
 
 ```bash
-python train.py --dataset ONeil --groups Drug --only\_fold 1
+python train.py --dataset ONeil --groups Drug --only_fold 1
 ```
 
 ## License
