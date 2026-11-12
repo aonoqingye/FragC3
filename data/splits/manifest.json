@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "splits": {
+    "ONeil/S1/split_1.npz": {
+      "dataset": "ONeil",
+      "setting": "S1",
+      "fold": 1,
+      "sha256": "a2dbbb4f8888868108efbc922902840ae6f947cfe460bf7936aa97c790cbdac6",
+      "rows": {
+        "train": 7531,
+        "valid": 2279,
+        "test": 2605,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S1/split_2.npz": {
+      "dataset": "ONeil",
+      "setting": "S1",
+      "fold": 2,
+      "sha256": "905a0eaf3d87d8fbfffcc73e91b00dc60761a649450fa1c388510d50cd52dc1f",
+      "rows": {
+        "train": 7232,
+        "valid": 2130,
+        "test": 3053,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S1/split_3.npz": {
+      "dataset": "ONeil",
+      "setting": "S1",
+      "fold": 3,
+      "sha256": "b913051d0f247454d3d3c674c40e5613ac058a67d1601b703ab00c836fe01196",
+      "rows": {
+        "train": 7418,
+        "valid": 2665,
+        "test": 2332,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S1/split_4.npz": {
+      "dataset": "ONeil",
+      "setting": "S1",
+      "fold": 4,
+      "sha256": "5c46b15ededdf531938034259e343d55e0922224144dd2eb02a6f3ebe9143f45",
+      "rows": {
+        "train": 7319,
+        "valid": 3051,
+        "test": 2045,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S1/split_5.npz": {
+      "dataset": "ONeil",
+      "setting": "S1",
+      "fold": 5,
+      "sha256": "018babeb0f4cca59a841cef7c033187505da6bb12ba16d57fc5ddef9d6a3eb59",
+      "rows": {
+        "train": 8366,
+        "valid": 1679,
+        "test": 2370,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S1/split_1.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S1",
+      "fold": 1,
+      "sha256": "971ed865c8152b5f29eeab28b590b282595786db3181519b02caec56989da0e5",
+      "rows": {
+        "train": 48522,
+        "valid": 10066,
+        "test": 16905,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S1/split_2.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S1",
+      "fold": 2,
+      "sha256": "bf2e3914e6f84daeab1b932cb05ebdfefb158bfdce67bb8401d7caed47f549d6",
+      "rows": {
+        "train": 48254,
+        "valid": 9495,
+        "test": 17744,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S1/split_3.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S1",
+      "fold": 3,
+      "sha256": "24f393873e22b83ce8472fd4e7803cc010184f9b6eea1a139a18ed870ca69006",
+      "rows": {
+        "train": 46801,
+        "valid": 10413,
+        "test": 18279,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S1/split_4.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S1",
+      "fold": 4,
+      "sha256": "909cd6144a5dbc50c78234b6522088866072632e726fc254aad8b74bfe4ccf36",
+      "rows": {
+        "train": 46479,
+        "valid": 12922,
+        "test": 16092,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S1/split_5.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S1",
+      "fold": 5,
+      "sha256": "1bafffd0ccab2aea99c8d5b8a64797acc16b28c5df5f72378b57b5f7b64705cf",
+      "rows": {
+        "train": 48292,
+        "valid": 13572,
+        "test": 13629,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S2/split_1.npz": {
+      "dataset": "ONeil",
+      "setting": "S2",
+      "fold": 1,
+      "sha256": "13bf15b0e9adfa4c33fbeff7e68b2523599aa439f003576b5ad09ce60f330904",
+      "rows": {
+        "train": 7504,
+        "valid": 2022,
+        "test": 2889,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S2/split_2.npz": {
+      "dataset": "ONeil",
+      "setting": "S2",
+      "fold": 2,
+      "sha256": "0d569d927a202c8b2c5431537daec51994575dc77c590f63e03d133fafb63455",
+      "rows": {
+        "train": 7596,
+        "valid": 2011,
+        "test": 2808,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S2/split_3.npz": {
+      "dataset": "ONeil",
+      "setting": "S2",
+      "fold": 3,
+      "sha256": "bcb42a70db3309cc815584758a07cace7ab0a899ae3b1df5293c3d30a45b5ba4",
+      "rows": {
+        "train": 7632,
+        "valid": 1986,
+        "test": 2797,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S2/split_4.npz": {
+      "dataset": "ONeil",
+      "setting": "S2",
+      "fold": 4,
+      "sha256": "aa5f722debbe3715b458d6cf8d0a8d2253a5952c4919af0884248f58892858a2",
+      "rows": {
+        "train": 7589,
+        "valid": 2054,
+        "test": 2772,
+        "quarantine": 0
+      }
+    },
+    "ONeil/S2/split_5.npz": {
+      "dataset": "ONeil",
+      "setting": "S2",
+      "fold": 5,
+      "sha256": "fbf7df4c9c4143d5384ebd07a378ed9f9082b8bbebab746ed84a74bab3114537",
+      "rows": {
+        "train": 7733,
+        "valid": 1989,
+        "test": 2693,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S2/split_1.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S2",
+      "fold": 1,
+      "sha256": "f98edf509e5162b8e071eac3029556cd749a567ad1b9fd9cb624b7a368478ef1",
+      "rows": {
+        "train": 48157,
+        "valid": 11891,
+        "test": 15445,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S2/split_2.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S2",
+      "fold": 2,
+      "sha256": "5b0e0c97b80fc66ca3dc472cab48fc091687632fa0920ccac27ff16966377409",
+      "rows": {
+        "train": 47376,
+        "valid": 12047,
+        "test": 16070,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S2/split_3.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S2",
+      "fold": 3,
+      "sha256": "e59869602f22fe9da2eafcaaaa122ac0462e162104e9da9b1e78618ced7a32c2",
+      "rows": {
+        "train": 48240,
+        "valid": 12535,
+        "test": 14718,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S2/split_4.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S2",
+      "fold": 4,
+      "sha256": "432be10a8953acfbfa0c3f40b8299e6cbb502005b68110e35b1e6da773cbc716",
+      "rows": {
+        "train": 49002,
+        "valid": 12782,
+        "test": 13709,
+        "quarantine": 0
+      }
+    },
+    "ALMANAC/S2/split_5.npz": {
+      "dataset": "ALMANAC",
+      "setting": "S2",
+      "fold": 5,
+      "sha256": "76a4777b7d24db3b14c08e994e33d094271bed0629546ac9d8681ad2e412b722",
+      "rows": {
+        "train": 48239,
+        "valid": 11704,
+        "test": 15550,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S0/split_1.npz": {
+      "dataset": "DrugComb",
+      "setting": "S0",
+      "fold": 1,
+      "sha256": "aca2aa3c0dbbb4e1463ec093fe8357b5b4b9e29e40b727ab02e5ac9b7c49fb47",
+      "rows": {
+        "train": 190142,
+        "valid": 47536,
+        "test": 59420,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S0/split_2.npz": {
+      "dataset": "DrugComb",
+      "setting": "S0",
+      "fold": 2,
+      "sha256": "1afb9a381a74a33893c09fe3f4abb6e706f0e44032817f2250041d106447536c",
+      "rows": {
+        "train": 190142,
+        "valid": 47536,
+        "test": 59420,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S0/split_3.npz": {
+      "dataset": "DrugComb",
+      "setting": "S0",
+      "fold": 3,
+      "sha256": "e66e418b6459e5914dab8e691c41347ed42b4b83f92626de2c27222e1dfb77ea",
+      "rows": {
+        "train": 190142,
+        "valid": 47536,
+        "test": 59420,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S0/split_4.npz": {
+      "dataset": "DrugComb",
+      "setting": "S0",
+      "fold": 4,
+      "sha256": "aa8e63c9035e664c14e907f456b2e0791419382603e44a4ae3f4e7eb4ddd8fb8",
+      "rows": {
+        "train": 190143,
+        "valid": 47536,
+        "test": 59419,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S0/split_5.npz": {
+      "dataset": "DrugComb",
+      "setting": "S0",
+      "fold": 5,
+      "sha256": "7dbe6e4dd93a2641b6236ebda6d2a45eca00065e876b0ec1d479ebfd8b3e9a4b",
+      "rows": {
+        "train": 190143,
+        "valid": 47536,
+        "test": 59419,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S1/split_1.npz": {
+      "dataset": "DrugComb",
+      "setting": "S1",
+      "fold": 1,
+      "sha256": "8ebf029b27ed62fc1d2571980cd9da3678d418bfe8a424aacb981c891cb1bb95",
+      "rows": {
+        "train": 187840,
+        "valid": 50081,
+        "test": 59177,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S1/split_2.npz": {
+      "dataset": "DrugComb",
+      "setting": "S1",
+      "fold": 2,
+      "sha256": "bc3be372ca8db2f8532da31df4b16c25d2e07db165235f5263e21c31b2fcfdd8",
+      "rows": {
+        "train": 184816,
+        "valid": 57872,
+        "test": 54410,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S1/split_3.npz": {
+      "dataset": "DrugComb",
+      "setting": "S1",
+      "fold": 3,
+      "sha256": "417c902c20660456719cc0bd17f40bee40631cd9da14a2f839e6a967e42bb6ed",
+      "rows": {
+        "train": 179965,
+        "valid": 60920,
+        "test": 56213,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S1/split_4.npz": {
+      "dataset": "DrugComb",
+      "setting": "S1",
+      "fold": 4,
+      "sha256": "a97668aa61ab5cb24f6aa4a4fd47421e5edeb8448075599987c23d4fc67e39ec",
+      "rows": {
+        "train": 191211,
+        "valid": 46231,
+        "test": 59656,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S1/split_5.npz": {
+      "dataset": "DrugComb",
+      "setting": "S1",
+      "fold": 5,
+      "sha256": "75db76ce0fdefcf049623a229ff75aff58329182677f3efead41dae4ee0321f4",
+      "rows": {
+        "train": 189590,
+        "valid": 56894,
+        "test": 50614,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S2/split_1.npz": {
+      "dataset": "DrugComb",
+      "setting": "S2",
+      "fold": 1,
+      "sha256": "b6edf72ee1416c8646827b631f3f16375efe1c93afd6ce796725c2c21d37c5a9",
+      "rows": {
+        "train": 185683,
+        "valid": 51460,
+        "test": 59955,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S2/split_2.npz": {
+      "dataset": "DrugComb",
+      "setting": "S2",
+      "fold": 2,
+      "sha256": "f86d50954e9eb7c4f500408034d133a1125d6bcc6167327b33effcaca06263ee",
+      "rows": {
+        "train": 186465,
+        "valid": 50954,
+        "test": 59679,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S2/split_3.npz": {
+      "dataset": "DrugComb",
+      "setting": "S2",
+      "fold": 3,
+      "sha256": "0b082d26fb97ef0569ed6b6d0012f2be18257bc764104daec99fd042d1216320",
+      "rows": {
+        "train": 186054,
+        "valid": 50136,
+        "test": 60908,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S2/split_4.npz": {
+      "dataset": "DrugComb",
+      "setting": "S2",
+      "fold": 4,
+      "sha256": "5c45f583324f0d14a2401d5761879aa979b0cfe6b3c941e2bac965a1789622d3",
+      "rows": {
+        "train": 185994,
+        "valid": 49800,
+        "test": 61304,
+        "quarantine": 0
+      }
+    },
+    "DrugComb/S2/split_5.npz": {
+      "dataset": "DrugComb",
+      "setting": "S2",
+      "fold": 5,
+      "sha256": "1ad0eb851d380f1025d3efae385ba4da235b238865cb84927293d9b1c9f3032b",
+      "rows": {
+        "train": 186635,
+        "valid": 50265,
+        "test": 60198,
+        "quarantine": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.2+cpu
+dgl==2.1.0
+# DGL 2.1 GraphBolt imports these even for CPU-only graph operations.
+pandas==2.3.3
+PyYAML==6.0.2
+pydantic==2.10.6
+-r requirements.txt

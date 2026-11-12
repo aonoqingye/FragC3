@@ -1,121 +1,128 @@
 # FragC3
 
-Official implementation of **FragC3**:  
-**Fragment-Centric Drug Synergy Prediction with Cell-Conditioned Cross-Fragment Attention**.
+FragC3 predicts drug-combination responses with atom-informed molecular fragments and cell-conditioned cross-fragment attention. Each drug is represented by BRICS building blocks, extended functional groups and Murcko scaffolds. The model combines the three views using the cell profile and predicts an ordered drug-pair response.
 
-FragC3 is a fragment-centric framework for drug synergy prediction. It decomposes each drug into chemically meaningful fragment views and models **cell-conditioned cross-drug fragment interactions** through a tri-attention mechanism. The repository provides the model implementation, training and evaluation entry points, and the Fragment-aware Synergy Explanation (FSE) utilities used for post-hoc qualitative interpretation.
+This release contains the FragC3 predictor, data preparation, fixed configurations and the 35 benchmark partitions used for its evaluation.
 
 ## Installation
 
-### 1\. Clone the repository
-
-```bash
-git clone https://github.com/aonoqingye/FragC3.git
-cd FragC3
-```
-
-### 2\. Create an environment
-
-A CUDA-enabled environment is needed for full experiments.
+Use Linux and Python 3.10. CUDA 12.1 is the reference GPU environment. CPU execution is supported for inspection and small runs.
 
 ```bash
 conda create -n fragc3 python=3.10 -y
 conda activate fragc3
+# Select ONE dependency set:
+python -m pip install -r requirements-cu121.txt  # NVIDIA GPU
+# python -m pip install -r requirements-cpu.txt  # CPU
 ```
 
-### 3\. Install dependencies
+The fully pinned CPU environment is also provided in `requirements-cpu-lock.txt`.
 
-```bash
-pip install -r requirements.txt
-```
+Run commands from the repository root. The GPU dependency set uses DGL 2.0.0 with CUDA 12.1; the CPU set uses the available DGL 2.1.0 CPU wheel. PyTorch Geometric is not required. The CPU dependency set includes Pandas, PyYAML and Pydantic for DGL 2.1 imports.
 
-## Data preparation
+## Benchmark inputs
 
-Place dataset files under `datas/` using the following structure:
+The Git repository and `FragC3-v1.1.0-full.zip` include the processed inputs. If using the smaller code-only archive, obtain `FragC3-v1.1.0-data.zip` from the corresponding release and place its `data/processed` directory under this repository.
 
 ```text
-datas/
-├── DrugComb/
-├── ONeil/
-└── NCI-ALMANAC/
+data/
+  processed/
+    ONeil/      # graphs.bin, cells.npz, samples.csv, smiles.csv, ...
+    ALMANAC/
+    DrugComb/
+  splits/       # included with the code: 35 fixed train/valid/test partitions
 ```
 
-## Evaluation protocols
-
-There are three evaluation settings:
-
-|Protocol|Grouping option|Description|
-|-|-|-|
-|S0 warm-start|`--groups none`|Sample-level held-out split. Test triplets are unseen, but drugs and cell lines may appear in training.|
-|S1 leave-drug-out|`--groups Drug`|Repeated drug-disjoint hold-out split. Held-out drug identities are selected before training; any sample containing a held-out drug is assigned to the test partition and excluded from training and validation.|
-|S2 leave-cell-line-out|`--groups Cell`|Repeated cell-line-disjoint hold-out split. All samples from held-out test cell lines are absent from training and validation.|
-
-## Training
-
-The main entry point is `train.py`.
-
-### Common commands
-
-S0 warm-start:
+The processed inputs store each drug graph and cell profile once. Samples retain their drug slots, cell identities, labels and row order. Checksums bind the graph files, features, sample tables and splits.
 
 ```bash
-python train.py \\
-  --dataset DrugComb \\
-  --groups none \\
-  --folds 5 \\
-  --train\_batch\_size 512 \\
-  --test\_batch\_size 512 \\
-  --lr 2e-4 \\
-  --epochs 100 \\
-  --early\_stopping 20
+python -m fragc3 verify-data
 ```
 
-S1 leave-drug-out:
+| Dataset | Endpoint | Cell features | Settings | Batch size |
+|---|---|---:|---|---:|
+| O'Neil | Binary classification | 954 | S1, S2 | 256 |
+| NCI-ALMANAC | ComboScore regression | 651 | S1, S2 | 256 |
+| DrugComb | CSS regression | 27,606 | S0, S1, S2 | 512 |
+
+S0 holds out sample rows. S1 uses the supplied drug-identity group partitions, with `drug_a` as the grouping field. S2 holds out cell identities. Use the shipped indices to reproduce these evaluations. Five partitions are supplied for each setting.
+
+Data sources, feature ordering and preparation formats are described in [docs/DATA.md](docs/DATA.md).
+
+## Train
+
+Run one partition:
 
 ```bash
-python train.py \\
-  --dataset DrugComb \\
-  --groups Drug \\
-  --folds 5 \\
-  --train\_batch\_size 512 \\
-  --test\_batch\_size 512 \\
-  --lr 2e-4 \\
-  --epochs 100 \\
-  --early\_stopping 20
+CUDA_VISIBLE_DEVICES=0 python -m fragc3 train \
+  --dataset ONeil --setting S1 --fold 1 \
+  --device cuda:0 --seed 0 --output outputs/ONeil_S1_fold1
 ```
 
-S2 leave-cell-line-out:
+Use `--dataset ALMANAC` or `--dataset DrugComb` for regression. The dataset configuration is loaded from `configs/`.
+
+All configurations use Adam with learning rate 0.0002 and zero weight decay. Learning-rate reduction uses a factor of 0.5 and validation patience 5, with a minimum rate of 0.00001. Early stopping uses patience 12, a five-epoch grace after an actual rate reduction, and a 100-epoch cap. Validation AUROC selects classification checkpoints; validation RMSE selects regression checkpoints. Exact validation improvements update the saved best checkpoint; patience uses thresholds of 0.0001 AUROC or 0.001 RMSE. ALMANAC initializes the final output bias from training-label mean. Targets retain their original scale.
+
+Each training epoch visits every training row once. Near-equal minibatches avoid singleton batches in the BatchNorm prediction head. Drug order is retained; the model does not apply random drug exchange or average the two prediction orders. FP32 is used and TF32 is disabled.
+
+The terminal validation-selected model produces the final training, validation and test predictions. Each output directory contains `best.pt`, `last.pt`, configuration, metrics and predictions generated by that run.
+
+### Resume
 
 ```bash
-python train.py \\
-  --dataset DrugComb \\
-  --groups Cell \\
-  --folds 5 \\
-  --train\_batch\_size 512 \\
-  --test\_batch\_size 512 \\
-  --lr 2e-4 \\
-  --epochs 100 \\
-  --early\_stopping 20
+CUDA_VISIBLE_DEVICES=0 python -m fragc3 train \
+  --dataset ONeil --setting S1 --fold 1 \
+  --device cuda:0 --seed 0 --output outputs/ONeil_S1_fold1 --resume
 ```
 
-Run O'Neil classification:
+`last.pt` contains the model, optimizer, scheduler, stopping counters and random-generator states. Data, partitions and configuration must match. Resume with the same device type and visible CUDA-device count to preserve the saved random states. `--pause-after 1` can pause after a completed epoch for a recovery check. Use checkpoints from trusted sources.
+
+### Run all partitions
 
 ```bash
-python train.py --dataset ONeil --groups Drug
+for fold in 1 2 3 4 5; do
+  CUDA_VISIBLE_DEVICES=0 python -m fragc3 train \
+    --dataset ONeil --setting S1 --fold "$fold" \
+    --output "outputs/ONeil_S1_fold${fold}" --device cuda:0
+done
 ```
 
-Run NCI-ALMANAC regression:
+Repeat with the settings in the dataset table. Independent partitions can run in separate processes on separate GPUs, each with its own output directory.
+
+## Evaluate and summarize
 
 ```bash
-python train.py --dataset ALMANAC --groups Drug
+python -m fragc3 evaluate \
+  --dataset ONeil --setting S1 --fold 1 \
+  --checkpoint outputs/ONeil_S1_fold1/best.pt \
+  --partition test --device cpu --output evaluation/ONeil_S1_fold1
+
+python -m fragc3 summarize --runs outputs --output summary.csv
 ```
 
-Run a single fold:
+Summaries require all five partitions in each dataset/setting/seed group and use sample standard deviation (`ddof=1`). AUROC and trapezoidal PR-AUC are converted to percentages in `summary.csv`; individual prediction reports retain values in [0, 1]. Regression reports include MSE, RMSE and MAE. AP is reported separately from trapezoidal PR-AUC.
+
+## Rebuild graphs or prepare new inputs
+
+The data archive includes the source SMILES, sample tables, cell vectors and feature ordering needed to rebuild the processed graph inputs:
 
 ```bash
-python train.py --dataset ONeil --groups Drug --only_fold 1
+python -m fragc3 prepare --dataset ONeil \
+  --samples data/processed/ONeil/samples.csv \
+  --smiles data/processed/ONeil/smiles.csv \
+  --cells data/processed/ONeil/cells.npz \
+  --cell-feature-order data/processed/ONeil/cell_feature_order.tsv \
+  --output rebuilt/ONeil
 ```
 
-## License
+Use an empty output directory. The ALMANAC preparation command retains its partial-sanitization molecular parsing convention. Fragment descriptors contain 167 MACCS bits and 27 pharmacophore indicators; ring information is initialized before descriptor calculation.
 
-This project is released under the MIT License.
+## Check the training rules
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## Citation and license
+
+Citation metadata are provided in `CITATION.cff` and `.zenodo.json`. Source code is distributed under the MIT license; see `LICENSE` and `NOTICE`. Benchmark data retain their original source terms; see [docs/DATA.md](docs/DATA.md).

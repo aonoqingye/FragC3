@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dataset": "ONeil",
+  "rows": 12415,
+  "drugs": 36,
+  "cells": 31,
+  "cell_dim": 954,
+  "views": [
+    "brics",
+    "fg",
+    "murcko"
+  ],
+  "atom_features": 45,
+  "fragment_features": 194,
+  "bond_features": 14,
+  "fragment_edge_features": 34,
+  "sha256": {
+    "cell_feature_order.tsv": "001e2fb2c3b03882ccfe5f7e33f7ea203df3fd704a8dccdc2f9e954bb3848a3d",
+    "cells.npz": "21bd149e0b8359a3375f5815473c52a1d43f9a41494e87e58d2b3dc6594bd019",
+    "drugs.json": "2edd94085375b815d65178d1fad2aba701455310e3ed6326569ce64934c783af",
+    "graphs.bin": "7722596c3962d5ce302140f03528d510a305158083e97477b3a9f94cbba5dc18",
+    "samples.csv": "870c1b579988b2b16a89b98af65e87f9349fe854891a9f289c559a17e2b213d4",
+    "smiles.csv": "89b8e75ca5b31458f427b439179a1b1792a53cc3fe4cfffa51f2bce247ab865a"
+  }
+}

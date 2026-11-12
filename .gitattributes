@@ -1,0 +1,4 @@
+* text=auto eol=lf
+data/processed/** binary
+*.npz binary
+*.bin binary

@@ -1,32 +1,11 @@
-# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Environments
+*.py[cod]
+.venv/
 .env
-.venv
-venv/
-conda/
-env/
-
-# Data (very important)
-*.csv
-*.pkl
-*.pt
-*.pth
-*.npy
-
-# Logs & outputs
-logs/
-results/
 outputs/
-
-# IDE
-.idea/
-.vscode/
-
-# OS
+evaluation/
+rebuilt/
+*.pt
+*.pt.gz
+*.log
 .DS_Store
-Thumbs.db

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite its versioned Zenodo record and the FragC3 paper."
+title: "FragC3: fragment-centric drug synergy prediction"
+type: software
+version: 1.1.0
+license: MIT
+repository-code: "https://github.com/aonoqingye/FragC3"
+authors:
+  - family-names: Qiu
+    given-names: MingKai
+  - family-names: Hu
+    given-names: Zhuangfei
+  - family-names: Li
+    given-names: Hao
+  - family-names: Zhang
+    given-names: Yongqi

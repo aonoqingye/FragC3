@@ -1,0 +1,38 @@
+{
+  "title": "FragC3: Fragment-Centric Drug Synergy Prediction with Cell-Conditioned Cross-Fragment Attention",
+  "description": "FragC3 model implementation, molecular graph preparation, fixed dataset configurations, processed benchmark inputs, evaluation partitions, and training and evaluation commands for O’Neil, NCI-ALMANAC and DrugComb.",
+  "creators": [
+    {
+      "name": "Qiu, MingKai",
+      "affiliation": "The Hong Kong University of Science and Technology (Guangzhou)"
+    },
+    {
+      "name": "Hu, Zhuangfei",
+      "affiliation": "The Hong Kong University of Science and Technology (Guangzhou)"
+    },
+    {
+      "name": "Li, Hao",
+      "affiliation": "Academy of Military Medical Sciences, Beijing, China"
+    },
+    {
+      "name": "Zhang, Yongqi",
+      "affiliation": "The Hong Kong University of Science and Technology (Guangzhou)"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "version": "v1.1.0",
+  "keywords": [
+    "drug synergy",
+    "fragment representation",
+    "cell-conditioned attention",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/aonoqingye/FragC3",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

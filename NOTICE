@@ -1,0 +1,8 @@
+FragC3 source code: copyright 2026 Mingkai Qiu, distributed under LICENSE.
+
+fragc3/efgs.py retains attribution to Gonzalo Colmenarejo's RDKit implementation of Peter Ertl's functional-group algorithm:
+Ertl P. An algorithm to identify functional groups in organic molecules.
+Journal of Cheminformatics 9, 36 (2017). https://doi.org/10.1186/s13321-017-0225-z
+The attribution in that source file is preserved.
+
+Molecular graph construction uses RDKit and DGL. These dependencies and benchmark data remain subject to their respective licenses and source attribution requirements.

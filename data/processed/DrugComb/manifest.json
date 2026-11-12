@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dataset": "DrugComb",
+  "rows": 297098,
+  "drugs": 129,
+  "cells": 59,
+  "cell_dim": 27606,
+  "views": [
+    "brics",
+    "fg",
+    "murcko"
+  ],
+  "atom_features": 45,
+  "fragment_features": 194,
+  "bond_features": 14,
+  "fragment_edge_features": 34,
+  "sha256": {
+    "cell_feature_order.tsv": "cf26acb553adcfa917243f2529d55a456c2935b9b6fd8084f0345ec2508f1789",
+    "cells.npz": "2be1fadbff0dbae672eddd39976059279d9ff5d3971fef7cccd2dac84eae70ac",
+    "drugs.json": "b251161395ea3b35aa8a9c2f6ba838d542f7dfb6fdef4bc5f73469f5b97b4651",
+    "graphs.bin": "c86524ea8959f900ae7ee7dac1ebce6f7756870e422a8a123bf8e4bca219f95e",
+    "samples.csv": "e9c892546204c5152dbf7d3b818bdafa38d3ec60ad639268505c3103d79f409e",
+    "smiles.csv": "ba38b24b7b6a0e8810e57fcbc5315d8713d63e111aa952c12d4b2286da795721"
+  }
+}

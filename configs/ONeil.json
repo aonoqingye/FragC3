@@ -1,0 +1,46 @@
+{
+  "dataset": "ONeil",
+  "task": "classification",
+  "model": {
+    "n_output": 2,
+    "cell_dim": 954,
+    "hid_dim": 300,
+    "heads": 2,
+    "ffn_expansion": 8,
+    "use_C3Attn": true,
+    "tri_attn": true,
+    "tri_variant": "scale_dot",
+    "cv_mode": "bilinear",
+    "tokenizer": "conv",
+    "dropout": 0.1,
+    "cell_agg": 256,
+    "cell_pred": 128,
+    "Lc": 32,
+    "frag_list": [
+      "brics",
+      "fg",
+      "murcko"
+    ],
+    "frag_agg": "cell_attn"
+  },
+  "training": {
+    "lr": 0.0002,
+    "weight_decay": 0.0,
+    "batch_size": 256,
+    "max_epochs": 100,
+    "patience": 12,
+    "early_stop_min_delta": 0.0001,
+    "lr_plateau_patience": 5,
+    "lr_plateau_factor": 0.5,
+    "min_lr": 1e-05,
+    "lr_grace_epochs": 5,
+    "optimizer_betas": [
+      0.9,
+      0.999
+    ],
+    "optimizer_eps": 1e-08,
+    "optimizer_amsgrad": false,
+    "cpu_threads": 4
+  },
+  "initialize_output_bias_from_training_mean": false
+}

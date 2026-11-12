@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dataset": "ALMANAC",
+  "rows": 75493,
+  "drugs": 87,
+  "cells": 55,
+  "cell_dim": 651,
+  "views": [
+    "brics",
+    "fg",
+    "murcko"
+  ],
+  "atom_features": 45,
+  "fragment_features": 194,
+  "bond_features": 14,
+  "fragment_edge_features": 34,
+  "sha256": {
+    "cell_feature_order.tsv": "86b1e436b8419da80364cc88368db23e50a3cba2c70f32a73a0a31c8bc5fc45f",
+    "cells.npz": "236cb0441f39ba1f52e8abe7a0f880a163cb2110f51270b9752033f281261982",
+    "drugs.json": "83804dfe8a6c907dd34a139682acebe7dff7fa730cdb19873cf9eb5295bf0929",
+    "graphs.bin": "5aa1a4af2d8f8bc350a0e5e458a19fde5e8419f2d82b814e1000ed72e024a93e",
+    "samples.csv": "36d56260eb14502fc302bf1bae708ecb9946c5e3c5103181b49d6acac6f917ed",
+    "smiles.csv": "3dab3d533d337b9b2325538d19be835bc80cab19ab238e22fc5ab187bc782266"
+  }
+}
